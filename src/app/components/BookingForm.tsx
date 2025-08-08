@@ -65,7 +65,9 @@ export function BookingForm({ table, onBookingSuccess, onFormSubmit }: BookingFo
               <FormControl>
                 <Input placeholder="Иван Петров" {...field} />
               </FormControl>
-              <FormMessage />
+              <div className="h-5">
+                <FormMessage />
+              </div>
             </FormItem>
           )}
         />
@@ -78,7 +80,9 @@ export function BookingForm({ table, onBookingSuccess, onFormSubmit }: BookingFo
               <FormControl>
                 <Input placeholder="+7 (999) 123-45-67" {...field} />
               </FormControl>
-              <FormMessage />
+              <div className="h-5">
+                <FormMessage />
+              </div>
             </FormItem>
           )}
         />
@@ -99,7 +103,9 @@ export function BookingForm({ table, onBookingSuccess, onFormSubmit }: BookingFo
                   value={field.value}
                 />
               </FormControl>
-              <FormMessage />
+               <div className="h-5">
+                <FormMessage />
+              </div>
             </FormItem>
           )}
         />
@@ -112,7 +118,9 @@ export function BookingForm({ table, onBookingSuccess, onFormSubmit }: BookingFo
               <FormControl>
                 <Input placeholder="Например, детский стул" {...field} value={field.value || ''} />
               </FormControl>
-              <FormMessage />
+              <div className="h-5">
+                <FormMessage />
+              </div>
             </FormItem>
           )}
         />

@@ -132,7 +132,7 @@ export default function Home() {
             <div>
               {selectedTable.status === 'available' && (
                 <div className="flex flex-col space-y-4 pt-4">
-                    <Button onClick={() => handleWalkIn(selectedTable)}>Посадить гостя (Walk-in)</Button>
+                    <Button onClick={() => handleWalkIn(selectedTable)}>Посадить гостя</Button>
                     <div className="relative my-4">
                         <div className="absolute inset-0 flex items-center">
                             <span className="w-full border-t" />
