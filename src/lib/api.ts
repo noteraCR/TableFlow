@@ -70,6 +70,27 @@ export const createReservation = async (reservationData: Omit<Reservation, 'id'>
 };
 
 /**
+ * Получить активное (последнее) бронирование для столика
+ * @param tableId - ID столика
+ */
+export const getActiveReservationForTable = async (tableId: number): Promise<Reservation | null> => {
+    const { data, error } = await supabase
+      .from('reservations')
+      .select('*')
+      .eq('table_id', tableId)
+      .order('created_at', { ascending: false }) // Берем самое новое
+      .limit(1)
+      .single(); // Ожидаем один объект или null
+  
+    if (error && error.code !== 'PGRST116') { // Игнорируем ошибку "не найдено строк"
+      console.error('Error fetching active reservation:', error);
+      throw new Error(error.message);
+    }
+  
+    return data;
+  };
+
+/**
  * Отменить (удалить) бронирование
  * @param id - ID бронирования
  */
