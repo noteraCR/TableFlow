@@ -35,7 +35,7 @@ export default function Home() {
         await api.updateTableStatus(table.id, 'occupied');
         toast.success("Успех!", { description: `Гость посажен за столик №${table.table_number}` });
         closeModal();
-    } catch(error) {
+    } catch(_error) {
         toast.error("Ошибка!", { description: `Не удалось посадить гостя.` });
     }
   };
@@ -45,7 +45,7 @@ export default function Home() {
         await api.updateTableStatus(table.id, 'available');
         toast.success("Успех!", { description: `Столик №${table.table_number} освобожден.` });
         closeModal();
-    } catch(error) {
+    } catch(_error) {
         toast.error("Ошибка!", { description: `Не удалось освободить столик.` });
     }
   };

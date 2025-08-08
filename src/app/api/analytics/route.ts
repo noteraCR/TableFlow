@@ -39,10 +39,11 @@ export async function GET() {
 
         return NextResponse.json(analyticsData);
 
-    } catch (error: any) {
+    } catch (error) {
         console.error('Analytics API Error:', error);
+        const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
         return new NextResponse(
-            JSON.stringify({ error: 'Failed to fetch analytics data', details: error.message }),
+            JSON.stringify({ error: 'Failed to fetch analytics data', details: errorMessage }),
             { status: 500 }
         );
     }
